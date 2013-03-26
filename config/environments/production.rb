@@ -66,5 +66,6 @@ Omrails::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Add domain name for production
+  # mailer, "Ryan Bates has a great railscast on that"
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
