@@ -68,4 +68,14 @@ Omrails::Application.configure do
   # Add domain name for production
   # mailer, "Ryan Bates has a great railscast on that"
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Peperclip should use Amazon S3 on Heroku
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+        :bucket => ENV['AWS_BUCKET'],
+        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+        :secret_access_key => ['AWS_SECRET_ACCESS_KEY']
+      }
+    }
 end
