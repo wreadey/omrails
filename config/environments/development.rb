@@ -36,4 +36,8 @@ Omrails::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # http://stackoverflow.com/questions/4320999/paperclip-my-image-is-not-recognized-by-the-identify-command-running-windows
+  Paperclip.options[:command_path] = "C:/ImgMgk"
+
 end
