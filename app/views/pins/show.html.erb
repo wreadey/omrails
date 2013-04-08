@@ -12,6 +12,13 @@
 				<%= link_to 'Edit', edit_pin_path(@pin) %> |
 			<% end %> 
 			<%= link_to 'Back', pins_path %>
+			<% unless @pin.img_loc_lat.blank? 
+				#bespoke code to load a map if the location information is available 
+			%>
+				<p>&nbsp;<br />
+					<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @pin.img_loc_lat %>,<%= @pin.img_loc_lng %>&zoom=13&size=600x300&maptype=roadmap&markers=color:green%7Clabel:P%7C<%= @pin.img_loc_lat %>,<%= @pin.img_loc_lng %>&sensor=false">
+				</p>
+			<% end %>
 		</div>
 	</div>
 </div>
