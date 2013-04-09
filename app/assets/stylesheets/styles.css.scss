@@ -54,3 +54,21 @@ body {
 	/* This is too much on FF -- look into this  */ 
 	/* margin: 10px 5px; */ 
 }
+
+.pin-nav {
+	position:relative;
+	height:20px;
+	width:100%;
+}
+
+.pin_nav_left{
+	position:absolute;
+	left:0px;
+	bottom:0px;
+}
+
+.pin_nav_right{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+}

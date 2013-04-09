@@ -1,7 +1,32 @@
 <div class="row">
 	<div class="span6 offset3">
 		<div class="well">
-			<%= image_tag @pin.image %>
+			<div class="pin-nav">
+				<% # Custom pin-nav class
+					 # Right now it only scrolls through ALL images 
+					 # This isn't good if you start navigating from a user's page,
+					 # but that will probably be rather complex 
+					 # Also, this is scrolling by ID which is not good. 
+					 # It should be at least by timestamp (created_at?).
+				%>
+				<div class="pin_nav_left">
+					<% if @pin.id == Pin.maximum("id") %>
+						<%= content_tag(:i, "", class:"icon-chevron-left icon-white icon-2x") %>
+					<% else %>
+						<%= link_to content_tag(:i, "", class:"icon-chevron-left icon-2x"), Pin.find(Pin.where("id > ?", @pin.id).minimum("id")) %>
+					<% end %>
+				</div>
+				<div class="pin_nav_right">
+					<% if @pin.id == Pin.minimum("id") %>
+						<%= content_tag(:i, "", class:"icon-chevron-right icon-white icon-2x") %>
+					<% else %>
+						<%= link_to content_tag(:i, "", class:"icon-chevron-right icon-2x"), Pin.find(Pin.where("id < ?", @pin.id).maximum("id")) %>
+					<% end %>
+				</div>
+			</div>
+			<div align="center">
+				<%= image_tag @pin.image %>
+			</div>
 			<p>
 			  <%= @pin.description %>
 			</p>
