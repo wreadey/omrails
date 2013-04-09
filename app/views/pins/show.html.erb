@@ -10,6 +10,7 @@
 			</p>
 			<% if current_user == @pin.user %>
 				<%= link_to 'Edit', edit_pin_path(@pin) %> |
+				<%= link_to 'Destroy', @pin, method: :delete, data: { confirm: 'Are you sure?' } %> |
 			<% end %> 
 			<%= link_to 'Back', pins_path %>
 			<% unless @pin.img_loc_lat.blank? 
