@@ -22,7 +22,7 @@
                                     # Look into fixes later.
                                 %>
                                 <div class="btn-group">  
-                                  <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> User</a>  
+                                  <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> <%= current_user.name %></a>  
                                   <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>  
                                   <ul class="dropdown-menu">  
                                     <li><%= link_to content_tag(:i, "", class:"icon-pencil icon-2x")+" Edit Profile",  edit_user_registration_path %></li>  
