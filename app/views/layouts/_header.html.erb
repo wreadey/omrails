@@ -11,14 +11,25 @@
 
                 <div class="nav-collapse">
                     <ul class="nav">
-                        <li><%= link_to 'Home',  root_path %></li>
-                        <li><%= link_to 'About',  about_path %></li>
+                        <li><%= link_to content_tag(:i, "", class:"icon-home icon-2x"),  root_path %></li>
+                        <li><%= link_to content_tag(:i, "", class:"icon-info-sign icon-2x"),  about_path %></li>
                     </ul>
                     <ul class="nav pull-right">
                         <% if user_signed_in? %>
-                            <li><%= link_to "Add +", new_pin_path %></li>
-                            <li><%= link_to 'Edit Profile',  edit_user_registration_path %></li>
-                            <li><%= link_to 'Logout',  destroy_user_session_path, method: :delete %></li>
+                            <li><%= link_to content_tag(:i, "", class:"icon-plus icon-2x")+" Add", new_pin_path %></li>
+                            <li>
+                                <%  # This doesn't work so well with the nav-collapse responsive feature.
+                                    # Look into fixes later.
+                                %>
+                                <div class="btn-group">  
+                                  <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> User</a>  
+                                  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>  
+                                  <ul class="dropdown-menu">  
+                                    <li><%= link_to content_tag(:i, "", class:"icon-pencil icon-2x")+" Edit Profile",  edit_user_registration_path %></li>  
+                                    <li><%= link_to content_tag(:i, "", class:"icon-trash icon-2x")+" Logout",  destroy_user_session_path, method: :delete %></li>  
+                                  </ul>  
+                                </div>  
+                            </li>
                         <% else %>
                             <li><%= link_to 'Login',  new_user_session_path %></li>
                         <% end %>

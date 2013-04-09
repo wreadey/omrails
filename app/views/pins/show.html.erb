@@ -9,10 +9,10 @@
 			  <%= @pin.user.name %>
 			</p>
 			<% if current_user == @pin.user %>
-				<%= link_to 'Edit', edit_pin_path(@pin) %> |
-				<%= link_to 'Destroy', @pin, method: :delete, data: { confirm: 'Are you sure?' } %> |
+				<%= link_to content_tag(:i, "", class:"icon-edit icon-2x"), edit_pin_path(@pin) %> |
+				<%= link_to content_tag(:i, "", class:"icon-trash icon-2x"), @pin, method: :delete, data: { confirm: 'Are you sure?' } %> |
 			<% end %> 
-			<%= link_to 'Back', pins_path %>
+			<%= link_to content_tag(:i, "", class:"icon-home icon-2x"), pins_path %>
 			<% unless @pin.img_loc_lat.blank? 
 				# bespoke code to load a map if the location information is available 
 				# Google Static Maps for now

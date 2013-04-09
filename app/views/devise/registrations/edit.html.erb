@@ -16,6 +16,12 @@
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+<p>Unhappy?<br />
+	<%= puts "Tough!"
+		  # This is not working... because it does not kill all of the user's pins, 
+		  # so the home page breaks when trying to load a page with pins that are not associated with any user! 
+			# link_to content_tag(:i, "", class:"icon-trash")+" Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete 
+	%>Tough.
+</p>
 
-<%= link_to "Back", :back %>
+<%= link_to content_tag(:i, "", class:"icon-chevron-left")+" Back", :back %>
