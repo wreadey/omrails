@@ -6,3 +6,8 @@
 	<%= link_to "One Month Rails","http://onemonthrails.com" %>. 
 	This is my final project, but I intend to continue working on it and building it out with more features.
 </p>
+<p>
+	<% unless user_signed_in? %>
+	 <%= link_to 'Sign in',  new_user_session_path %> so you can see each pin plotted on a map. 
+	<% end %>
+</p>
